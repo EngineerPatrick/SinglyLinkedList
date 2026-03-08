@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        cc: [gcc]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Build (treat warnings as errors)
+        run: |
+          make clean
+          make all CC=${{ matrix.cc }} CFLAGS_EXTRA="-Werror"
+
+  sanitize-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Build with sanitizers (build-only)
+        run: |
+          make clean
+          make all CFLAGS_EXTRA="-fsanitize=address,undefined -fno-omit-frame-pointer -O0 -g" \
+                   LDFLAGS_EXTRA="-fsanitize=address,undefined -fno-omit-frame-pointer"
