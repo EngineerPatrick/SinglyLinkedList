@@ -1,0 +1,13 @@
+# Build artifacts
+/build/
+/bin/
+*.o
+*.a
+*.d
+
+# Doxygen generated output
+/docs/html/
+/docs/latex/
+
+# OS / editor
+.vscode/
