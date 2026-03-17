@@ -58,7 +58,6 @@ run: $(TARGET)
 SAN := -fsanitize=address,undefined -fno-omit-frame-pointer
 sanitize: clean
 	$(MAKE) all CFLAGS_EXTRA="$(SAN) -O0 -g" LDFLAGS_EXTRA="$(SAN)"
-	./$(TARGET)
 
 clean:
 	rm -rf $(BLD_DIR) $(BIN_DIR) docs/html docs/latex
