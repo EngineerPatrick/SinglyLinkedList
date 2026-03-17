@@ -15,6 +15,8 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
+#include <stdio.h>
+
 typedef struct Iterator It;
 
 typedef struct List List;
