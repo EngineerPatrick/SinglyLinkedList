@@ -12,6 +12,8 @@
 #ifndef UI_OUTPUT_ERROR_H
 #define UI_OUTPUT_ERROR_H
 
+#include <stdio.h>
+
 /**
 *   @brief  Outputs the error cases when list_create is called.
 *
