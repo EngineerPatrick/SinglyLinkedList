@@ -14,6 +14,8 @@
 #ifndef UI_INPUT_H
 #define UI_INPUT_H
 
+#include <stdio.h>
+
 enum input_error {
     INERR_VALID = 0,
     INERR_FGETS = -1,
